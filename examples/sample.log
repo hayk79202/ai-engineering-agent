@@ -1,0 +1,3 @@
+INFO service started
+WARN request took longer than expected
+ERROR database connection failed
