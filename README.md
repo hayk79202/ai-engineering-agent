@@ -28,7 +28,7 @@ The values above illustrate the response shape; they are not a measurement of th
 ## Design
 
 ```text
-repository path -> bounded file walk -> source inspection -> validated JSON report
+repository path -> bounded file walk -> source inspection -> structured JSON report
 ```
 
 The scan is bounded to 1,000 files, 1 MiB per file, and 50 markers. It does not run code or shell commands from the target repository. It currently handles repository metadata and source markers only. Future milestones are MCP tool exposure, log analysis, optional model summaries, schema validation, and workflow execution with explicit controls.

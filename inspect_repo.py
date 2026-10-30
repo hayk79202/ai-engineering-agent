@@ -25,7 +25,7 @@ def inspect(root: Path) -> dict:
             if len(files) >= MAX_FILES:
                 break
             path = Path(directory) / name
-            if not path.is_file():
+            if path.is_symlink() or not path.is_file():
                 continue
             try:
                 size = path.stat().st_size
