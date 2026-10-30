@@ -18,7 +18,10 @@ class ToolTests(unittest.TestCase):
         self.root = Path(self.temp.name)
         self.previous = os.environ.get("ENGINEERING_ROOT")
         os.environ["ENGINEERING_ROOT"] = str(self.root)
-        (self.root / "sample.py").write_text("# TODO: add docs\nprint('hi')\n", encoding="utf-8")
+        (self.root / "sample.py").write_text(
+            "# TODO: add docs\nmessage = 'TODO in a string'\n", encoding="utf-8"
+        )
+        (self.root / "README.md").write_text("TODO in prose\n", encoding="utf-8")
         (self.root / "app.log").write_text("INFO started\nWARN slow\nERROR failed\n", encoding="utf-8")
 
     def tearDown(self):
@@ -32,6 +35,7 @@ class ToolTests(unittest.TestCase):
         result = inspect(self.root)
         self.assertEqual(result["extensions"][".py"], 1)
         self.assertEqual(result["markers"][0]["line"], 1)
+        self.assertEqual(len(result["markers"]), 1)
 
     def test_log_summary(self):
         result = analyze_log(self.root / "app.log")

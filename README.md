@@ -10,7 +10,7 @@ python inspect_repo.py .
 python analyze_log.py /path/to/app.log
 ```
 
-The standalone CLIs use Python 3.10+ and have no third-party dependencies. The repository tool counts source files, reports the largest files, and collects a capped list of `TODO` and `FIXME` markers. The log tool counts warning and error lines. Both are read-only.
+The standalone CLIs use Python 3.10+ and have no third-party dependencies. The repository tool counts source files, reports the largest files, and collects a capped list of `TODO` and `FIXME` comments. The log tool counts warning and error lines. Both are read-only.
 
 ## MCP server
 
